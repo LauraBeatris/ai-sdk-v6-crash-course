@@ -1,7 +1,7 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 
-const model = google('gemini-2.5-flash');
+const model = openai('gpt-5-mini');
 
 const prompt =
   'Give me the first paragraph of a story about an imaginary planet.';

@@ -86,7 +86,7 @@ Good luck, and I'll see you in the solution.
 - [ ] Import the necessary AI SDK components at the top of your file
 
   ```ts
-  import { google } from '@ai-sdk/google';
+  import { openai } from '@ai-sdk/openai';
   import { generateText } from 'ai';
   ```
 

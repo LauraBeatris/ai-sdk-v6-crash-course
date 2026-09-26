@@ -17,12 +17,12 @@ The middleware comes from the [AI SDK DevTools](https://ai-sdk.dev/docs/ai-sdk-c
 Use the [`wrapLanguageModel()`](https://ai-sdk.dev/docs/reference/ai-sdk-core/wrap-language-model) function from the [AI SDK](https://ai-sdk.dev/docs/introduction) to add the middleware to your model. Pass the model and the middleware to it:
 
 ```ts
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { devToolsMiddleware } from '@ai-sdk/devtools';
 import { wrapLanguageModel } from 'ai';
 
 const model = wrapLanguageModel({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   middleware: devToolsMiddleware(),
 });
 ```

@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 import { tavily } from '@tavily/core';
 
@@ -37,7 +37,7 @@ if (!rawContent) {
 }
 
 const result = await streamText({
-  model: google('gemini-2.5-flash-lite'),
+  model: openai('gpt-5-nano'),
   prompt: `
     <task-context>
     You are a helpful assistant that summarizes the content of a URL.

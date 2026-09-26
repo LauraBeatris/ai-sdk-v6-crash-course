@@ -5,10 +5,10 @@ This streaming process is complex, but the AI SDK simplifies it for us. In this 
 Let's look at the problem we need to solve:
 
 ```ts
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 
-const model = google('gemini-2.5-flash');
+const model = openai('gpt-5-mini');
 
 const prompt =
   'Give me the first paragraph of a story about an imaginary planet.';

@@ -79,7 +79,7 @@ Good luck, and I'll see you in the solution.
 
 ## Steps To Complete
 
-- [ ] Implement the first `writeSlackResult` function to generate the initial Slack message draft using the Google Gemini model with the provided system prompt. You'll need to use [`generateText`](/exercises/01-ai-sdk-basics/01.05-generating-text/problem/readme.md) here.
+- [ ] Implement the first `writeSlackResult` function to generate the initial Slack message draft using the OpenAI GPT-5 Mini model with the provided system prompt. You'll need to use [`generateText`](/exercises/01-ai-sdk-basics/01.05-generating-text/problem/readme.md) here.
 
 - [ ] Implement the `evaluateSlackResult` function to evaluate the first draft using another LLM call with the evaluation system prompt - again, with [`generateText`](/exercises/01-ai-sdk-basics/01.05-generating-text/problem/readme.md).
 

@@ -2,16 +2,16 @@ The AI SDK, by default, does not always wait for a stream to be completed. This 
 
 ## The Problem
 
-In this code here, we're calling `streamText`, passing "Hello, world!" to Gemini 2.5 Flash, and we have an `onFinish` on the `streamTextResult`.
+In this code here, we're calling `streamText`, passing "Hello, world!" to GPT-5 Mini, and we have an `onFinish` on the `streamTextResult`.
 
 ```ts
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 
 console.log('Process starting...');
 
 const streamTextResult = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Hello, world!',
   onFinish: () => {
     console.log('Stream finished!');
@@ -45,13 +45,13 @@ That's because even though we're getting streaming data coming from the LLM, we'
 If we do process them, for instance, using a for-await loop, our code would look like this:
 
 ```ts
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 
 console.log('Process starting...');
 
 const streamTextResult = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Hello, world!',
   onFinish: () => {
     console.log('Stream finished!');
@@ -82,13 +82,13 @@ However, there are some situations where we want to consume the entire stream an
 For that, we can use the `consumeStream()` method on the `streamTextResult` as shown in explainer.1:
 
 ```ts
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 
 console.log('Process starting...');
 
 const streamTextResult = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Hello, world!',
   onFinish: () => {
     console.log('Stream finished!');
@@ -118,13 +118,13 @@ as we expect.
 Now this is not just available on the return type of `streamTextResult` too. There's also a top level function called `consumeStream`, which can consume a readable stream until it's fully read, as shown in [explainer.2](../explainer.2/main.ts):
 
 ```ts
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { consumeStream, streamText } from 'ai';
 
 console.log('Process starting...');
 
 const streamTextResult = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Hello, world!',
   onFinish: () => {
     console.log('Stream finished!');

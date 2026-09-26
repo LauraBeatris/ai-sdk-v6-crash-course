@@ -11,7 +11,7 @@ The code uses [Tavily](https://www.tavily.com/), a third-party service that can 
 Let's look at the main code:
 
 ```typescript
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 import { tavily } from '@tavily/core';
 
@@ -65,7 +65,7 @@ Now, we need to complete three TODO items in the prompt template:
 // TODO: Add some rules telling the model to use paragraphs in its output, and to use quotes from the content of the website to answer the question.
 // TODO: Add the output format telling the model to return only the summary, not any other text.
 const result = await streamText({
-  model: google('gemini-2.5-flash-lite'),
+  model: openai('gpt-5-nano'),
   prompt: `
     <task-context>
     You are a helpful assistant that summarizes the content of a URL.

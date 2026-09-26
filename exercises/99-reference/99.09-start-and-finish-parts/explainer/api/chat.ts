@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import {
   convertToModelMessages,
   createUIMessageStream,
@@ -47,7 +47,7 @@ export const POST = async (req: Request): Promise<Response> => {
       writeTextPart(writer, 'Paragraph 1: ');
 
       const firstParagraphResult = streamText({
-        model: google('gemini-2.5-flash-lite'),
+        model: openai('gpt-5-nano'),
         messages: [
           ...modelMessages,
           {
@@ -71,7 +71,7 @@ export const POST = async (req: Request): Promise<Response> => {
       writeTextPart(writer, 'Paragraph 2: ');
 
       const secondParagraphResult = streamText({
-        model: google('gemini-2.5-flash-lite'),
+        model: openai('gpt-5-nano'),
         messages: [
           ...modelMessages,
           {
@@ -96,7 +96,7 @@ export const POST = async (req: Request): Promise<Response> => {
       writeTextPart(writer, 'Paragraph 3: ');
 
       const thirdParagraphResult = streamText({
-        model: google('gemini-2.5-flash-lite'),
+        model: openai('gpt-5-nano'),
         messages: [
           ...modelMessages,
           {

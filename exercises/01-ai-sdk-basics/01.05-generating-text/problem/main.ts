@@ -1,8 +1,8 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { generateText } from 'ai';
 
-// TODO: Choose a model. I recommend using the Google Gemini model:
-// gemini-2.5-flash-lite
+// TODO: Choose a model. I recommend using the OpenAI GPT-5 Mini model:
+// gpt-5-nano
 const model = TODO;
 
 const prompt = 'What is the capital of France?';

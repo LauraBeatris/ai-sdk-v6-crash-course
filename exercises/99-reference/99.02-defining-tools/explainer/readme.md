@@ -4,7 +4,7 @@ We're inside a `streamText` call here where we have a prompt saying, log the mes
 
 ```ts
 const result = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Log the message "Hello, world!" to the console',
   tools: {
     // ...explained below

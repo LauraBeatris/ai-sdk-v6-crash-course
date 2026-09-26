@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import {
   convertToModelMessages,
   createUIMessageStream,
@@ -28,7 +28,7 @@ export const POST = async (req: Request): Promise<Response> => {
   const stream = createUIMessageStream<MyMessage>({
     execute: async ({ writer }) => {
       const streamTextResult = streamText({
-        model: google('gemini-2.5-flash'),
+        model: openai('gpt-5-mini'),
         messages: modelMessages,
       });
 
@@ -40,7 +40,7 @@ export const POST = async (req: Request): Promise<Response> => {
       // since we'll need to use structured outputs to reliably
       // generate multiple suggestions
       const followupSuggestionsResult = streamText({
-        model: google('gemini-2.5-flash'),
+        model: openai('gpt-5-mini'),
         // TODO: Define the schema for the suggestions
         // using zod
         schema: TODO,

@@ -1,10 +1,10 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { consumeStream, streamText } from 'ai';
 
 console.log('Process starting...');
 
 const streamTextResult = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Hello, world!',
   onFinish: () => {
     console.log('Stream finished!');

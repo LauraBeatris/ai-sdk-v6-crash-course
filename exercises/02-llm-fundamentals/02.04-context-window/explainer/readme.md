@@ -43,13 +43,13 @@ However, we're expecting it to fail, so we're going to set it to zero:
 
 ```typescript
 await generateText({
-  model: google('gemini-2.5-flash-lite'),
+  model: openai('gpt-5-nano'),
   prompt: text,
   maxRetries: 0,
 });
 ```
 
-When I run this with Gemini, I end up with an error: "You have exceeded your current quota."
+When I run this with GPT-5 Mini, I end up with an error: "You have exceeded your current quota."
 
 Different model providers throw different errors. For instance, Anthropic will simply validate it and say the request is too large. But the concept here is the same: we have passed too much information to the LLM.
 

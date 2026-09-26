@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import {
   convertToModelMessages,
   stepCountIs,
@@ -21,7 +21,7 @@ export const POST = async (req: Request): Promise<Response> => {
   const mcpClient = TODO;
 
   const result = streamText({
-    model: google('gemini-2.5-flash'),
+    model: openai('gpt-5-mini'),
     messages: await convertToModelMessages(messages),
     system: `
       You are a helpful assistant that can use the GitHub API to interact with the user's GitHub account.

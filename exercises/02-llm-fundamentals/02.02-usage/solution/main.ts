@@ -1,8 +1,8 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 
 const output = streamText({
-  model: google('gemini-2.5-flash-lite'),
+  model: openai('gpt-5-nano'),
   prompt: `Which country makes the best sausages? Answer in a single paragraph.`,
 });
 

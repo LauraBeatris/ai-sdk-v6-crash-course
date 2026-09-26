@@ -53,7 +53,7 @@ export const POST = async (req: Request): Promise<Response> => {
 
   // TODO: pass the modelMessages to streamText
   const streamTextResult = streamText({
-    model: google('gemini-2.5-flash'),
+    model: openai('gpt-5-mini'),
   });
 
   // TODO: create a UIMessageStream from the streamTextResult
@@ -67,7 +67,7 @@ export const POST = async (req: Request): Promise<Response> => {
 
 When examining the request in the network tab, you'll find that `body.messages` contains an array of `UIMessage`s. To send these to `streamText`, we first need to convert them from `UIMessage`s to `ModelMessage`s using a function from the `ai` package. Check the [reference material](/exercises/99-reference/99.01-ui-messages-vs-model-messages/explainer/readme.md) for more information.
 
-Once all these steps are complete, you'll be able to have a full conversation with the Gemini model, not just a single call and response, but an evolving conversation where the LLM maintains context over all previous messages.
+Once all these steps are complete, you'll be able to have a full conversation with the GPT-5 Mini model, not just a single call and response, but an evolving conversation where the LLM maintains context over all previous messages.
 
 ## Steps To Complete
 

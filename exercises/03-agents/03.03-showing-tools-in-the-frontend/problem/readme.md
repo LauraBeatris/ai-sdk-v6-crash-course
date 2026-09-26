@@ -8,7 +8,7 @@ The tools are currently defined within the [`streamText`](./api/chat.ts) functio
 
 ```ts
 const result = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   messages: await convertToModelMessages(messages),
   system: `...`,
   tools: {

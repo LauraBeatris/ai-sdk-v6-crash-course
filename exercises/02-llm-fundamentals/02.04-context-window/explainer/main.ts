@@ -1,5 +1,5 @@
 import { generateText } from 'ai';
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { Tiktoken } from 'js-tiktoken/lite';
 import o200k_base from 'js-tiktoken/ranks/o200k_base';
 
@@ -25,7 +25,7 @@ const tokens = tokenize(text);
 console.log(`Tokens length: ${tokens.length}`);
 
 await generateText({
-  model: google('gemini-2.5-flash-lite'),
+  model: openai('gpt-5-nano'),
   prompt: text,
   // NOTE: by default, the AI SDK retries the request 3 times
   // if it fails. We can prevent this by setting maxRetries to 0.

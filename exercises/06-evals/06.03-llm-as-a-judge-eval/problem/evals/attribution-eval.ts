@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { generateObject } from 'ai';
 import { createScorer } from 'evalite';
 import { readFileSync } from 'fs';
@@ -33,7 +33,7 @@ export const attributionToChainOfThoughtPaper = createScorer<
   name: 'Attribution',
   scorer: async ({ input, output }) => {
     const result = await generateObject({
-      model: google('gemini-2.5-flash'),
+      model: openai('gpt-5-mini'),
       system: ATTRIBUTION_PROMPT,
       messages: TODO, // TODO: Pass the chain of thought paper, the question and the answer given
       schema: TODO, // TODO: Define the schema for the response

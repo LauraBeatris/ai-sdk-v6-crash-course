@@ -1,10 +1,10 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { streamText, tool } from 'ai';
 import { styleText } from 'node:util';
 import z from 'zod';
 
 const result = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Log the message "Hello, world!" to the console',
   tools: {
     logToConsole: tool({

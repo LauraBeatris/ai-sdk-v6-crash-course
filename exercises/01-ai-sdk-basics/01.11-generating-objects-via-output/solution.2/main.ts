@@ -1,8 +1,8 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { generateObject, streamText } from 'ai';
 import z from 'zod';
 
-const model = google('gemini-2.5-flash');
+const model = openai('gpt-5-mini');
 
 const stream = streamText({
   model,

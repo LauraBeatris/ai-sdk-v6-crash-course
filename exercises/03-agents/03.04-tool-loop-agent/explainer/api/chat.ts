@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import {
   createAgentUIStreamResponse,
   type InferAgentUIMessage,
@@ -58,7 +58,7 @@ const tools = {
 };
 
 const agent = new ToolLoopAgent({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   instructions: `
     You are a helpful assistant that can use a sandboxed file system to create, edit and delete files.
 

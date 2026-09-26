@@ -126,7 +126,7 @@ export const POST = async (req: Request): Promise<Response> => {
   // TODO: wait for the stream to finish and append the
   // last message to the chat
   const result = streamText({
-    model: google('gemini-2.5-flash'),
+    model: openai('gpt-5-mini'),
     messages: await convertToModelMessages(messages),
   });
 

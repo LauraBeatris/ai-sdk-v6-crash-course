@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import {
   convertToModelMessages,
   createUIMessageStream,
@@ -24,7 +24,7 @@ const generateQueriesForTavily = (
   modelMessages: ModelMessage[],
 ) => {
   const queriesResult = streamObject({
-    model: google('gemini-2.5-flash'),
+    model: openai('gpt-5-mini'),
     system: `
       You are a helpful assistant that generates queries to search the web for information.
 
@@ -127,7 +127,7 @@ const streamFinalSummary = async (
     .join('\n');
 
   const answerResult = streamText({
-    model: google('gemini-2.5-flash'),
+    model: openai('gpt-5-mini'),
     system: `You are a helpful assistant that answers questions based on the search results.
       <rules>
       You should use the search results to answer the question.

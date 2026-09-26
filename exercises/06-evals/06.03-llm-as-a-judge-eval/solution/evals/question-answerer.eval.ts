@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { generateObject, generateText } from 'ai';
 import { evalite } from 'evalite';
 import { readFileSync } from 'fs';
@@ -25,7 +25,7 @@ evalite('Chain Of Thought Paper', {
   ],
   task: async (input) => {
     const result = await generateText({
-      model: google('gemini-2.5-flash'),
+      model: openai('gpt-5-mini'),
       system: `
         You are a helpful assistant that can answer questions about the chain of thought prompting paper.
         

@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import {
   convertToModelMessages,
   createUIMessageStreamResponse,
@@ -37,7 +37,7 @@ export const POST = async (req: Request): Promise<Response> => {
     .join('');
 
   const titleResult = generateText({
-    model: google('gemini-2.5-flash-lite'),
+    model: openai('gpt-5-nano'),
     prompt: `
       You are a helpful assistant that can generate titles for conversations.
 
@@ -67,7 +67,7 @@ export const POST = async (req: Request): Promise<Response> => {
   });
 
   const streamTextResult = streamText({
-    model: google('gemini-2.5-flash'),
+    model: openai('gpt-5-mini'),
     messages: modelMessages,
     experimental_telemetry: {
       isEnabled: true,

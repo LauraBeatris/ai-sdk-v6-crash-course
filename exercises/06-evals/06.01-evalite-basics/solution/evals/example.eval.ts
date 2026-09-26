@@ -1,4 +1,4 @@
-import { google } from '@ai-sdk/google';
+import { openai } from '@ai-sdk/openai';
 import { generateText } from 'ai';
 import { evalite } from 'evalite';
 
@@ -19,7 +19,7 @@ evalite('Capitals', {
   ],
   task: async (input) => {
     const capitalResult = await generateText({
-      model: google('gemini-2.5-flash-lite'),
+      model: openai('gpt-5-nano'),
       prompt: `
         You are a helpful assistant that can answer questions about the capital of countries.
 

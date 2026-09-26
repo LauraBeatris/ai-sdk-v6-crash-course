@@ -39,7 +39,7 @@ For each provider, you need a specific environment variable:
 You can then instantiate the model by just calling this `openai` or `google` or `anthropic` here:
 
 ```ts
-const model = openai('gpt-4o-mini');
+const model = openai('gpt-5-mini');
 
 console.dir(model, { depth: null });
 ```

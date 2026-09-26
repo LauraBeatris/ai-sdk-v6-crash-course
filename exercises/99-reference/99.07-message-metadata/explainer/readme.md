@@ -19,7 +19,7 @@ We then have a standard `streamText` result here:
 
 ```ts
 const streamTextResult = streamText({
-  model: google('gemini-2.5-flash'),
+  model: openai('gpt-5-mini'),
   prompt: 'Hello, world!',
 });
 ```
