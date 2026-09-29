@@ -4,25 +4,29 @@ import {
   streamText,
   type ModelMessage,
   type UIMessage,
+  convertToModelMessages,
 } from 'ai';
+
+const model = openai('gpt-5-mini')
 
 export const POST = async (req: Request): Promise<Response> => {
   const body = await req.json();
 
-  // TODO: get the UIMessage[] from the body
-  const messages: UIMessage[] = TODO;
+  const messages: UIMessage[] = body.messages;
 
-  // TODO: convert the UIMessage[] to ModelMessage[]
-  const modelMessages: ModelMessage[] = TODO;
+  // Converts the UI message to a model message that the model can process 🤷‍♀️
+  const modelMessages: ModelMessage[] = await convertToModelMessages(messages);
 
-  // TODO: pass the modelMessages to streamText
+  // Pass to the model and get a text stream
   const streamTextResult = streamText({
-    model: openai('gpt-5-mini'),
+    model,
+    messages: modelMessages,
   });
 
-  // TODO: create a UIMessageStream from the streamTextResult
-  const stream = TODO;
+  // Convert text stream to UI stream
+  const stream = streamTextResult.toUIMessageStream();
 
+  // Convert to a response to the UI
   return createUIMessageStreamResponse({
     stream,
   });

@@ -5,7 +5,7 @@ const model = openai('gpt-5-mini');
 
 const stream = streamText({
   model,
-  prompt: 'Give me a sonnet about a cat called Steven.',
+  prompt: 'What is the safest city to live in Brazil.',
 });
 
 for await (const chunk of stream.toUIMessageStream()) {
