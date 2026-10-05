@@ -1,5 +1,5 @@
 import { openai } from '@ai-sdk/openai';
-import { streamText } from 'ai';
+import { generateText, Output, streamText } from 'ai';
 import z from 'zod';
 
 const model = openai('gpt-5-mini');
@@ -16,15 +16,21 @@ for await (const chunk of stream.textStream) {
 
 const finalText = await stream.text;
 
-// TODO: Replace this with a call to generateText, passing:
-// - The model, same as above
-// - The prompt, asking for facts about the imaginary planet,
-//   passing in the finalText as the story
-// - The output, which should be Output.object({}), passing
-//   the schema: z.object({
-//     facts: z.array(z.string()).describe('The facts about the imaginary planet. Write as if you are a scientist.'),
-//   })
-const factsResult = TODO;
+const factsResult =
+  await generateText({
+    model,
+    prompt: `Give me some facts about the imaginary planet. Here's the story: ${finalText}`,
+    output: Output.object({
+      schema: z.object({
+        facts: z
+          .array(z.string())
+          .describe(
+            'The facts about the imaginary planet. Write as if you are a scientist.',
+          ),
+      }),
+    }),
+  });
+;
 
 // TODO: Log the output of the result
 console.log(factsResult.output);
